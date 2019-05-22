@@ -24,22 +24,27 @@ f.obj.save<-function(prefix="blup"){
   i<-match(exclude,o)
   o<-o[-i]
 
+  tfolder<-tempdir()
   lapply(
     as.list(o),
     function(x){
       print(x)
-      saveRDS(get(x),file.path(tempfolder,paste0("_",prefix,".",x,".Rds")))
+      saveRDS(get(x),file.path(tfolder,paste0("_",prefix,".",x,".Rds")))
     }
   )
+  return(tfolder)
+
 }
 
 
-f.obj.load<-function(prefix="blup"){
+f.obj.load<-function(prefix="blup",tfolder){
   # prefix = "bfpm"
-  o<-list.files(tempfolder,paste0("_",prefix,"\\.","*.Rds"),fullpath=T)
+  # tfolder<-tempdir()
+  o<-list.files(tfolder,paste0("_",prefix,"\\.","*.Rds"),full.names=TRUE)
   #load
   lapply(
     as.list(o),
     function(x){readRDS(x)}
   )
+  return(tfolder)
 }
