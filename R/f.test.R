@@ -2,11 +2,11 @@
 #'
 #' @description Testing the world
 #'
-#' @param character
+#' @param
 #'
 #' @return NULL
 #'
-#' @examples f.test("blup")
+#' @examples
 #'
 #' @export f.test
 #'
