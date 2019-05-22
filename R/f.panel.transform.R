@@ -6,8 +6,22 @@
 #'
 #' @return NULL
 #'
-#' @examples
+#' @examples   d<-spd4testing(missingY=T,missingX=T)
 #'
+#'   d
+#' f <- y ~ x + factor(year)
+#'   e<-plm(formula=f,data=d,model="fd")
+#'   summary(e)
+
+#'   dd<-panel.transform(formula=f,data=d,model="fd",index=c("id","year"),keep.vars=c("id","year","gid","w"))
+#'   dd
+#'   ss<-dd
+#'   ss<-ss[-(1:4)]
+#'   ff<-as.formula(paste(names(ss)[1],"~",paste(names(ss)[-1],collapse="+")))
+#'   ff
+#'   ee<-lm(formula=ff,data=dd)
+#'   summary(ee)
+
 #' @export f.panel.transform
 #'
 
@@ -94,20 +108,20 @@ f.panel.transform<-function(
 }
 
 
-if (nowrun==T){
-  d<-spd4testing(missingY=T,missingX=T)
-  d
-  f <- y ~ x + factor(year)
-  e<-plm(formula=f,data=d,model="fd")
-  summary(e)
-
-  dd<-panel.transform(formula=f,data=d,model="fd",index=c("id","year"),keep.vars=c("id","year","gid","w"))
-  dd
-  ss<-dd
-  ss<-ss[-(1:4)]
-  ff<-as.formula(paste(names(ss)[1],"~",paste(names(ss)[-1],collapse="+")))
-  ff
-  ee<-lm(formula=ff,data=dd)
-  summary(ee)
-
-}
+# if (nowrun==T){
+#   d<-spd4testing(missingY=T,missingX=T)
+#   d
+#   f <- y ~ x + factor(year)
+#   e<-plm(formula=f,data=d,model="fd")
+#   summary(e)
+#
+#   dd<-panel.transform(formula=f,data=d,model="fd",index=c("id","year"),keep.vars=c("id","year","gid","w"))
+#   dd
+#   ss<-dd
+#   ss<-ss[-(1:4)]
+#   ff<-as.formula(paste(names(ss)[1],"~",paste(names(ss)[-1],collapse="+")))
+#   ff
+#   ee<-lm(formula=ff,data=dd)
+#   summary(ee)
+#
+# }

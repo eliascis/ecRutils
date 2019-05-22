@@ -101,40 +101,40 @@ f.data.transform<-function(
   return(dt)
 }
 
-if (nowrun==T){
-
-  d<-spd4testing()
-  d
-  f<-y~x + z| id + year | 0 | id
-  data.transform(data=d,vars=f,index=c("id","year"))
-
-
-}
-
-
-if (nowrun==T){
-
-  #my clustering
-  f<-y~x + factor(year)
-  e<-plm(f,d,model="within")
-  e$vcov<-vcovTamal(estimate=e,data=d,groupvar="gid",byhand=F)
-  summary(e)
-
-  #lfe
-  f<-y~x| id + year | 0 | id
-  f<-y~x| id + year | 0 | 0
-  e<-felm(f,d)
-  summary(e)
+# if (nowrun==T){
+#
+#   d<-spd4testing()
+#   d
+#   f<-y~x + z| id + year | 0 | id
+#   data.transform(data=d,vars=f,index=c("id","year"))
+#
+#
+# }
 
 
-  #FD
-  f<-y~x+factor(year)
-  e<-plm(f,d,model="fd")
-  summary(e)
-  ##transform and lfe for FD
-  dt<-fd.data(d,c("y","x"),index=c("id","year"))
-  f<-y~x | year | 0 | 0
-  e<-felm(f,dt)
-  summary(e)
-
-}
+# if (nowrun==T){
+#
+#   #my clustering
+#   f<-y~x + factor(year)
+#   e<-plm(f,d,model="within")
+#   e$vcov<-vcovTamal(estimate=e,data=d,groupvar="gid",byhand=F)
+#   summary(e)
+#
+#   #lfe
+#   f<-y~x| id + year | 0 | id
+#   f<-y~x| id + year | 0 | 0
+#   e<-felm(f,d)
+#   summary(e)
+#
+#
+#   #FD
+#   f<-y~x+factor(year)
+#   e<-plm(f,d,model="fd")
+#   summary(e)
+#   ##transform and lfe for FD
+#   dt<-fd.data(d,c("y","x"),index=c("id","year"))
+#   f<-y~x | year | 0 | 0
+#   e<-felm(f,dt)
+#   summary(e)
+#
+# }
