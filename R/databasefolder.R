@@ -18,5 +18,6 @@
 #' data(foldersetup)
 "databasefolder"
 "gdalfolder"
+"projectsfolder"
 
 
