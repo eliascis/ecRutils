@@ -19,5 +19,6 @@
 "databasefolder"
 "gdalfolder"
 "projectsfolder"
+# "analyfolder"
 
 

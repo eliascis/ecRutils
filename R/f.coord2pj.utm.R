@@ -33,6 +33,6 @@ f.coord2pj.utm<-function(coord){
     south<-" "
   }
   #projection string
-  pj.string<-paste0("+proj=utm +zone=",48,south," +datum=WGS84 +units=m +no_defs")
+  pj.string<-paste0("+proj=utm +zone=",zone,south," +datum=WGS84 +units=m +no_defs")
   print(pj.string)
 }
