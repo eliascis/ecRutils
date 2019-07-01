@@ -20,6 +20,8 @@ f.gdal.calc<-function(
   B_band=NULL,
   C=NULL,
   C_band=NULL,
+  D=NULL,
+  D_band=NULL,
   outfile=NULL,
   NoDataValue=NULL,
   type=NULL,
@@ -49,7 +51,7 @@ f.gdal.calc<-function(
   # quiet="blup"
 
   #arguments
-  args<-c("h","calc","A","A_band","B","B_band","C","C_band","outfile","NoDataValue","type","format","creation.option","allBands", "overwrite","debug","quiet")
+  args<-c("h","calc","A","A_band","B","B_band","C","C_band","D","D_band","outfile","NoDataValue","type","format","creation.option","allBands", "overwrite","debug","quiet")
   #argument names
   names(args)<-args
   ##args list
@@ -67,7 +69,7 @@ f.gdal.calc<-function(
   # prgr<-"/Library/Frameworks/GDAL.framework/Versions/2.2/gdalwarp"
   options<-paste(unlist(args),collapse=" ")
   #double --
-  dd<-c("calc","A_band","B_band","C_band","outfile","NoDataValue","type","format","creation","allBands","overwrite","debug","quite")
+  dd<-c("calc","A_band","B_band","C_band","D_band","outfile","NoDataValue","type","format","creation","allBands","overwrite","debug","quite")
   for (o in dd){
     options<-sub(paste0("-",o),paste0(" --",o),options)
   }
